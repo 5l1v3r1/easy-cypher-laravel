@@ -1,0 +1,36 @@
+Laravel crypt service based on code 
+https://www.owasp.org/index.php/How_to_protect_sensitive_data_in_URL's
+
+
+How to use: 
+
+```
+<?php 
+namespace App\Services;
+
+use App\Services\CryptService;
+
+class FooService {
+
+    protected $cryptService ;
+
+    public function __construct(CryptService $cryptService) {
+        $this->cryptService = $cryptService; 
+    }
+
+    public function encrypt($message)
+    { 
+        return $this->cryptService->encrypt($message);
+    }
+
+    public function decrypt($encrypted)
+    { 
+        return $this->cryptService->decrypt($encrypted);
+    }
+
+}
+```
+
+Encryption key used is the same as APP_KEY so, you can change it at your .env file 
+
+
